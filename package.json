@@ -4,8 +4,8 @@
   "description": "",
   "main": "./src/app.js",
   "scripts": {
-    "build": "SET NODE_ENV=production npm run build:clean webpack --config webpack.production.config.js --mode production --optimize-minimize  --colors --progress",
-    "build-windows": "SET NODE_ENV=production && npm run build:clean & webpack --mode production --optimize-minimize --config webpack.production.config.js --colors --progress",
+    "build": "NODE_ENV=production npm run build:clean && webpack --config webpack.production.config.js --mode production --optimize-minimize  --colors --progress",
+    "build-windows": "SET NODE_ENV=production && npm run build:clean && webpack --mode production --optimize-minimize --config webpack.production.config.js --colors --progress",
     "dev": "webpack-dev-server --mode development --devtool eval --progress  --inline --hot --content-base src",
     "build:clean": "rimraf ./dist",
     "server": "node server/server",
