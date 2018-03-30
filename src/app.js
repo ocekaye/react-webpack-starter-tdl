@@ -1,29 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import todoApp from './reducers';
 
-import ContainerHeader from './js/layouts/ContainerHeader';
-import Home from './js/layouts/Home';
-import About from './js/componens/About';
-import Todo from './js/layouts/Todo';
-import todoApp from './reducers'
+import './assets/scss/main.scss';
+import './assets/css/main.css';
 
-let store = createStore(todoApp)
+import Header from './components/Header';
+import Footer from './components/Footer';
+import MainPage from './layout/MainPage';
+import Form from './layout/Form';
+import About from './layout/About';
+import NotFound from './layout/NotFound';
+import Redux from  './layout/Redux';
+
+let store = createStore(todoApp);
 
 const app = document.getElementById('app');
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={hashHistory}>
-            <Route path='/' component={ContainerHeader}>
-                <IndexRoute component={Home} />
-                <Route path='home' component={Home}/>
-                <Route path='about' component={About}/>
-                <Route path='todo' component={Todo}/>
-            </Route>
-        </Router>
+      <Router>
+        <div className="">
+          <Header/>
+          <div style={{paddingTop: 65}}>
+            <Switch>
+              <Route exact path="/" component={MainPage}/>
+              <Route path="/about" component={About}/>
+              <Route path="/input" component={Form}/>
+              <Route path="/redux" component={Redux}/>
+              <Route component={NotFound}/>
+            </Switch>
+          </div>
+          <Footer/>
+        </div>
+      </Router>
     </Provider>
     , app);
 
