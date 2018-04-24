@@ -1,7 +1,7 @@
 # React Webpack Babel Starter TDL
 This starter kit is designed to get you up and running with a bunch of awesome new front-end technologies, all on top of a configurable, feature-rich webpack build system that's already setup to provide hot reloading.
 
-## Requirements
+## Preview
 * Live preview <a href="http://react-starter-tdl.setyatmoko.id/" target="_blank">React Starter TDL</a>
 ## Requirements
 * NodeJs https://nodejs.org
